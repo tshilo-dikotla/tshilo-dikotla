@@ -118,3 +118,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# dashboards
+DASHBOARD_URL_NAMES = {
+    'subject_models_url': 'subject_models_url',
+    'subject_listboard_url': 'td_dashboard:subject_listboard_url',
+    'eligibility_listboard_url': 'td_dashboard:eligibility_listboard_url',
+    'subject_dashboard_url': 'td_dashboard:subject_dashboard_url',
+}
+
+LAB_DASHBOARD_URL_NAMES = {}
+
+DASHBOARD_BASE_TEMPLATES = {
+    'listboard_base_template': 'tshilo_dikotla/base.html',
+    'dashboard_base_template': 'tshilo_dikotla/base.html',
+    'eligibility_listboard_template': 'td_dashboard/screening/listboard.html',
+    'subject_listboard_template': 'td_dashboard/subject/listboard.html',
+    'subject_dashboard_template': 'td_dashboard/subject/dashboard.html',
+}
