@@ -15,16 +15,16 @@ cancer.append_item(
 cancer.append_item(
     NavbarItem(
         name='eligible_subject',
-        label='Eligibility',
+        label='Maternal Eligibility',
         fa_icon='fa-user-plus',
-        url_name=settings.DASHBOARD_URL_NAMES.get('eligibility_listboard_url')))
+        url_name=settings.DASHBOARD_URL_NAMES.get('maternal_eligibility_listboard_url')))
 
 cancer.append_item(
     NavbarItem(
-        name='consented_subject',
-        label='Subjects',
+        name='maternal_subject',
+        label='Maternal Subjects',
         fa_icon='far fa-user-circle',
-        url_name=settings.DASHBOARD_URL_NAMES.get('subject_listboard_url')))
+        url_name=settings.DASHBOARD_URL_NAMES.get('maternal_subject_listboard_url')))
 
 
 site_navbars.register(cancer)

@@ -10,11 +10,25 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
+import configparser
 import os
+import sys
+
+from django.core.management.color import color_style
+
+
+style = color_style()
+
+APP_NAME = 'cancer'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+ETC_DIR = '/etc'
+
+LOGIN_REDIRECT_URL = 'home_url'
+
+INDEX_PAGE = 'td.bhp.org.bw:8000'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -25,7 +39,7 @@ SECRET_KEY = 'mt2-_fw#9p*yx4vps(j&-*5*a(t(jpos&24xd&)4+s4!lu*w^2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cancer-test.bhp.org.bw', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +51,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django_crypto_fields.apps.AppConfig',
+    'edc_dashboard.apps.AppConfig',
+    'td_dashboard.apps.AppConfig',
+    'tshilo_dikotla.apps.EdcBaseAppConfig',
+    'tshilo_dikotla.apps.EdcProtocolAppConfig',
+    'tshilo_dikotla.apps.AppConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -47,6 +69,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'edc_dashboard.middleware.DashboardMiddleware',
+    'edc_subject_dashboard.middleware.DashboardMiddleware',
+    'edc_lab_dashboard.middleware.DashboardMiddleware'
 ]
 
 ROOT_URLCONF = 'tshilo_dikotla.urls'
@@ -67,7 +92,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tshilo_dikotla.wsgi.application'
+WSGI_APPLICATION = f'{APP_NAME}.wsgi.application'
 
 
 # Database
@@ -79,6 +104,28 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
+    MIGRATION_MODULES = {
+        "django_crypto_fields": None,
+        "edc_call_manager": None,
+        "edc_appointment": None,
+        "edc_call_manager": None,
+        "edc_consent": None,
+        "edc_death_report": None,
+        "edc_export": None,
+        "edc_identifier": None,
+        "edc_lab": None,
+        "edc_metadata": None,
+        "edc_rule_groups": None,
+        "edc_registration": None,
+        "edc_sync_files": None,
+        "edc_sync": None,
+        "cancer_subject": None}
+
+if 'test' in sys.argv:
+    PASSWORD_HASHERS = ('django_plainpasswordhasher.PlainPasswordHasher', )
+    DEFAULT_FILE_STORAGE = 'inmemorystorage.InMemoryStorage'
 
 
 # Password validation
@@ -121,10 +168,10 @@ STATIC_URL = '/static/'
 
 # dashboards
 DASHBOARD_URL_NAMES = {
-    'subject_models_url': 'subject_models_url',
-    'subject_listboard_url': 'td_dashboard:subject_listboard_url',
-    'eligibility_listboard_url': 'td_dashboard:eligibility_listboard_url',
-    'subject_dashboard_url': 'td_dashboard:subject_dashboard_url',
+    'maternal_subject_models_url': 'maternal_subject_models_url',
+    'maternal_subject_listboard_url': 'td_dashboard:maternal_subject_listboard_url',
+    'maternal_eligibility_listboard_url': 'td_dashboard:maternal_eligibility_listboard_url',
+    'maternal_subject_dashboard_url': 'td_dashboard:maternal_subject_dashboard_url',
 }
 
 LAB_DASHBOARD_URL_NAMES = {}
@@ -132,7 +179,7 @@ LAB_DASHBOARD_URL_NAMES = {}
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'tshilo_dikotla/base.html',
     'dashboard_base_template': 'tshilo_dikotla/base.html',
-    'eligibility_listboard_template': 'td_dashboard/screening/listboard.html',
-    'subject_listboard_template': 'td_dashboard/subject/listboard.html',
-    'subject_dashboard_template': 'td_dashboard/subject/dashboard.html',
+    'maternal_eligibility_listboard_template': 'td_dashboard/screening/listboard.html',
+    'maternal_subject_listboard_template': 'td_dashboard/maternal_subject/listboard.html',
+    'maternal_subject_dashboard_template': 'td_dashboard/maternal_subject/dashboard.html',
 }
