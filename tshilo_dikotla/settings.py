@@ -19,7 +19,7 @@ from django.core.management.color import color_style
 
 style = color_style()
 
-APP_NAME = 'cancer'
+APP_NAME = 'tshilo_dikotla'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,7 +39,7 @@ SECRET_KEY = 'mt2-_fw#9p*yx4vps(j&-*5*a(t(jpos&24xd&)4+s4!lu*w^2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cancer-test.bhp.org.bw', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['td-test.bhp.org.bw', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -53,7 +53,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django_crypto_fields.apps.AppConfig',
+    'edc_appointment.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
+    'edc_device.apps.AppConfig',
+    'edc_lab.apps.AppConfig',
+    'edc_navbar.apps.AppConfig',
+    'edc_timepoint.apps.AppConfig',
     'td_dashboard.apps.AppConfig',
     'tshilo_dikotla.apps.EdcBaseAppConfig',
     'tshilo_dikotla.apps.EdcProtocolAppConfig',
@@ -71,7 +76,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'edc_dashboard.middleware.DashboardMiddleware',
     'edc_subject_dashboard.middleware.DashboardMiddleware',
-    'edc_lab_dashboard.middleware.DashboardMiddleware'
+    #     'edc_lab_dashboard.middleware.DashboardMiddleware'
 ]
 
 ROOT_URLCONF = 'tshilo_dikotla.urls'
@@ -121,7 +126,7 @@ if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
         "edc_registration": None,
         "edc_sync_files": None,
         "edc_sync": None,
-        "cancer_subject": None}
+        "td_maternal": None}
 
 if 'test' in sys.argv:
     PASSWORD_HASHERS = ('django_plainpasswordhasher.PlainPasswordHasher', )
@@ -183,3 +188,5 @@ DASHBOARD_BASE_TEMPLATES = {
     'maternal_subject_listboard_template': 'td_dashboard/maternal_subject/listboard.html',
     'maternal_subject_dashboard_template': 'td_dashboard/maternal_subject/dashboard.html',
 }
+
+SITE_ID = 1
