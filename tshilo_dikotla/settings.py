@@ -53,11 +53,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django_crypto_fields.apps.AppConfig',
+    'django_extensions',
+    'simple_history',
+    'corsheaders',
+    'rest_framework',
+    'rest_framework.authtoken',
     'edc_appointment.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
     'edc_lab.apps.AppConfig',
+    'edc_model_admin.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
+    'edc_subject_dashboard.apps.AppConfig',
     'edc_timepoint.apps.AppConfig',
     'td_dashboard.apps.AppConfig',
     'tshilo_dikotla.apps.EdcBaseAppConfig',
@@ -171,6 +178,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'tshilo_dikotla', 'static')
+
 # dashboards
 DASHBOARD_URL_NAMES = {
     'maternal_subject_models_url': 'maternal_subject_models_url',
@@ -188,5 +196,17 @@ DASHBOARD_BASE_TEMPLATES = {
     'maternal_subject_listboard_template': 'td_dashboard/maternal_subject/listboard.html',
     'maternal_subject_dashboard_template': 'td_dashboard/maternal_subject/dashboard.html',
 }
+
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 1,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PAGINATION_CLASS': (
+        'rest_framework.pagination.LimitOffsetPagination',
+    )
+}
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 SITE_ID = 1
