@@ -6,7 +6,9 @@ from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_device.constants import CENTRAL_SERVER
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
+
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
+from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 
 style = color_style()
 
@@ -38,3 +40,8 @@ class EdcDeviceAppConfig(BaseEdcDeviceAppConfig):
 
 class EdcIdentifierAppConfig(BaseEdcIdentifierAppConfig):
     identifier_prefix = '085'
+
+
+class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
+    visit_models = {
+        'td_maternal': ('maternal_visit', 'td_maternal.subjectvisit')}

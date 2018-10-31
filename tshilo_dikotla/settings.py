@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'edc_appointment.apps.AppConfig',
+    'edc_consent.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
     'edc_lab.apps.AppConfig',
@@ -66,9 +67,13 @@ INSTALLED_APPS = [
     'edc_navbar.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'edc_timepoint.apps.AppConfig',
+    'edc_registration.apps.AppConfig',
+    'edc_visit_schedule.apps.AppConfig',
     'td_dashboard.apps.AppConfig',
+    'td_maternal.apps.AppConfig',
     'tshilo_dikotla.apps.EdcBaseAppConfig',
     'tshilo_dikotla.apps.EdcProtocolAppConfig',
+    'tshilo_dikotla.apps.EdcVisitTrackingAppConfig',
     'tshilo_dikotla.apps.AppConfig',
 
 ]
@@ -79,6 +84,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'edc_dashboard.middleware.DashboardMiddleware',
@@ -192,7 +198,7 @@ LAB_DASHBOARD_URL_NAMES = {}
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'tshilo_dikotla/base.html',
     'dashboard_base_template': 'tshilo_dikotla/base.html',
-    'maternal_eligibility_listboard_template': 'td_dashboard/screening/listboard.html',
+    'maternal_eligibility_listboard_template': 'td_dashboard/maternal_eligibility/listboard.html',
     'maternal_subject_listboard_template': 'td_dashboard/maternal_subject/listboard.html',
     'maternal_subject_dashboard_template': 'td_dashboard/maternal_subject/dashboard.html',
 }
