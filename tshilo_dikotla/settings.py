@@ -30,6 +30,9 @@ LOGIN_REDIRECT_URL = 'home_url'
 
 INDEX_PAGE = 'td.bhp.org.bw:8000'
 
+# KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
+AUTO_CREATE_KEYS = False
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
