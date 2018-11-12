@@ -15,9 +15,9 @@ tshilo_dikotla = Navbar(name='tshilo_dikotla')
 tshilo_dikotla.append_item(
     NavbarItem(
         name='eligible_subject',
-        label='Maternal Eligibility',
+        label='Subject Screening',
         fa_icon='fa-user-plus',
-        url_name=settings.DASHBOARD_URL_NAMES.get('maternal_eligibility_listboard_url')))
+        url_name=settings.DASHBOARD_URL_NAMES.get('subject)screening_listboard_url')))
 
 tshilo_dikotla.append_item(
     NavbarItem(
