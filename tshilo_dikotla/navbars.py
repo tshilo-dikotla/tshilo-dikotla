@@ -17,7 +17,7 @@ tshilo_dikotla.append_item(
         name='eligible_subject',
         label='Subject Screening',
         fa_icon='fa-user-plus',
-        url_name=settings.DASHBOARD_URL_NAMES.get('subject)screening_listboard_url')))
+        url_name=settings.DASHBOARD_URL_NAMES.get('subject_screening_listboard_url')))
 
 tshilo_dikotla.append_item(
     NavbarItem(
