@@ -113,7 +113,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = f'{APP_NAME}.wsgi.application'
+WSGI_APPLICATION = 'tshilo_dikotla.wsgi.application'
 
 
 # Database
