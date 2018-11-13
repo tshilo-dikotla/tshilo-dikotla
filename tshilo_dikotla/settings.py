@@ -61,12 +61,13 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
-    'edc_appointment.apps.AppConfig',
+    'edc_action_item.apps.AppConfig',
     'edc_consent.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
     'edc_identifier.apps.AppConfig',
     'edc_lab.apps.AppConfig',
+    'edc_locator.apps.AppConfig',
     'edc_model_admin.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
@@ -75,6 +76,7 @@ INSTALLED_APPS = [
     'edc_visit_schedule.apps.AppConfig',
     'td_dashboard.apps.AppConfig',
     'td_maternal.apps.AppConfig',
+    'tshilo_dikotla.apps.EdcAppointmentAppConfig',
     'tshilo_dikotla.apps.EdcBaseAppConfig',
     'tshilo_dikotla.apps.EdcProtocolAppConfig',
     'tshilo_dikotla.apps.EdcVisitTrackingAppConfig',
@@ -185,6 +187,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+DEFAULT_STUDY_SITE = '40'
 
 
 # Static files (CSS, JavaScript, Images)

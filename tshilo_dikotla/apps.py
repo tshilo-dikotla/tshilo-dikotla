@@ -2,6 +2,8 @@ from datetime import datetime
 from dateutil.tz import gettz
 from django.apps import AppConfig as DjangoAppConfig
 from django.core.management.color import color_style
+from edc_appointment.appointment_config import AppointmentConfig
+from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_device.constants import CENTRAL_SERVER
@@ -15,6 +17,14 @@ style = color_style()
 
 class AppConfig(DjangoAppConfig):
     name = 'tshilo_dikotla'
+
+
+class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
+    configurations = [
+        AppointmentConfig(
+            model='edc_appointment.appointment',
+            related_visit_model='td_maternal.maternalvisit',
+            appt_type='clinic')]
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
