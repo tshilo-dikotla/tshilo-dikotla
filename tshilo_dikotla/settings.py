@@ -180,7 +180,7 @@ LANGUAGES = (
     ('tn', 'Setswana'),
     ('en', 'English'))
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Gaborone'
 
 USE_I18N = True
 
