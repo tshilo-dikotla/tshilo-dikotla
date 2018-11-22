@@ -17,14 +17,14 @@ tshilo_dikotla.append_item(
         name='eligible_subject',
         label='Subject Screening',
         fa_icon='fa-user-plus',
-        url_name=settings.DASHBOARD_URL_NAMES.get('subject_screening_listboard_url')))
+        url_name=settings.DASHBOARD_URL_NAMES.get('screening_listboard_url')))
 
 tshilo_dikotla.append_item(
     NavbarItem(
         name='maternal_subject',
         label='Maternal Subjects',
         fa_icon='far fa-user-circle',
-        url_name=settings.DASHBOARD_URL_NAMES.get('maternal_subject_listboard_url')))
+        url_name=settings.DASHBOARD_URL_NAMES.get('subject_listboard_url')))
 
 
 site_navbars.register(tshilo_dikotla)

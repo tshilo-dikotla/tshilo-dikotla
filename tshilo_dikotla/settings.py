@@ -201,9 +201,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'tshilo_dikotla', 'static')
 # dashboards
 DASHBOARD_URL_NAMES = {
     'maternal_subject_models_url': 'maternal_subject_models_url',
-    'maternal_subject_listboard_url': 'td_dashboard:maternal_subject_listboard_url',
-    'subject_screening_listboard_url': 'td_dashboard:subject_screening_listboard_url',
-    'maternal_subject_dashboard_url': 'td_dashboard:maternal_subject_dashboard_url',
+    'subject_listboard_url': 'td_dashboard:subject_listboard_url',
+    'screening_listboard_url': 'td_dashboard:screening_listboard_url',
+    'subject_dashboard_url': 'td_dashboard:subject_dashboard_url',
 }
 
 LAB_DASHBOARD_URL_NAMES = {}
@@ -211,9 +211,9 @@ LAB_DASHBOARD_URL_NAMES = {}
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'tshilo_dikotla/base.html',
     'dashboard_base_template': 'tshilo_dikotla/base.html',
-    'subject_screening_listboard_template': 'td_dashboard/subject_screening/listboard.html',
-    'maternal_subject_listboard_template': 'td_dashboard/maternal_subject/listboard.html',
-    'maternal_subject_dashboard_template': 'td_dashboard/maternal_subject/dashboard.html',
+    'screening_listboard_template': 'td_dashboard/subject_screening/listboard.html',
+    'subject_listboard_template': 'td_dashboard/maternal_subject/listboard.html',
+    'subject_dashboard_template': 'td_dashboard/maternal_subject/dashboard.html',
 }
 
 REST_FRAMEWORK = {
