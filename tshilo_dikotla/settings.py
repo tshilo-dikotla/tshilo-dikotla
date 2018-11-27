@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'edc_action_item.apps.AppConfig',
     'edc_consent.apps.AppConfig',
+    'edc_prn.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
     'edc_identifier.apps.AppConfig',
@@ -228,3 +229,6 @@ REST_FRAMEWORK = {
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 SITE_ID = 1
+
+PARENT_REFERENCE_MODEL1 = ''
+PARENT_REFERENCE_MODEL2 = ''
