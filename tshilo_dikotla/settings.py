@@ -74,14 +74,15 @@ INSTALLED_APPS = [
     'edc_timepoint.apps.AppConfig',
     'edc_registration.apps.AppConfig',
     'edc_visit_schedule.apps.AppConfig',
+    'td_visit_schedule.apps.AppConfig',
     'td_dashboard.apps.AppConfig',
     'td_maternal.apps.AppConfig',
-    'td_visit_schedule.apps.AppConfig',
     'tshilo_dikotla.apps.EdcAppointmentAppConfig',
     'tshilo_dikotla.apps.EdcBaseAppConfig',
     'tshilo_dikotla.apps.EdcProtocolAppConfig',
     'tshilo_dikotla.apps.EdcVisitTrackingAppConfig',
     'tshilo_dikotla.apps.AppConfig',
+    'tshilo_dikotla.apps.EdcFacilityAppConfig',
 
 ]
 
@@ -229,6 +230,10 @@ REST_FRAMEWORK = {
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 SITE_ID = 1
+
+# edc_facility
+HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
+COUNTRY = 'botswana'
 
 PARENT_REFERENCE_MODEL1 = ''
 PARENT_REFERENCE_MODEL2 = ''
