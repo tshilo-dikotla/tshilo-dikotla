@@ -1,19 +1,19 @@
 from datetime import datetime
+
+from dateutil.relativedelta import MO, TU, WE, TH, FR, SA, SU
 from dateutil.tz import gettz
 from django.apps import AppConfig as DjangoAppConfig
-from dateutil.relativedelta import MO, TU, WE, TH, FR, SA, SU
-
 from django.core.management.color import color_style
 from edc_appointment.appointment_config import AppointmentConfig
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
-from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_device.constants import CENTRAL_SERVER
+from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
-
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
+
 
 style = color_style()
 
@@ -38,7 +38,7 @@ class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
     study_open_datetime = datetime(
         2016, 4, 1, 0, 0, 0, tzinfo=gettz('UTC'))
     study_close_datetime = datetime(
-        2018, 12, 1, 0, 0, 0, tzinfo=gettz('UTC'))
+        2020, 12, 1, 0, 0, 0, tzinfo=gettz('UTC'))
 
 
 class EdcBaseAppConfig(BaseEdcBaseAppConfig):
