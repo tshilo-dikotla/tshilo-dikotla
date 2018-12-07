@@ -78,6 +78,7 @@ INSTALLED_APPS = [
     'td_visit_schedule.apps.AppConfig',
     'td_dashboard.apps.AppConfig',
     'td_maternal.apps.AppConfig',
+    'td_reference.apps.AppConfig',
     'tshilo_dikotla.apps.EdcAppointmentAppConfig',
     'tshilo_dikotla.apps.EdcMetadataAppConfig',
     'tshilo_dikotla.apps.EdcBaseAppConfig',
