@@ -13,7 +13,9 @@ from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
-
+from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
+from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
+from edc_constants.constants import FAILED_ELIGIBILITY
 
 style = color_style()
 
@@ -26,7 +28,7 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
     configurations = [
         AppointmentConfig(
             model='edc_appointment.appointment',
-            related_visit_model='td_maternal.maternalvisit',
+            related_visit_model='td_maternal.subjectvisit',
             appt_type='clinic')]
 
 
@@ -57,7 +59,7 @@ class EdcIdentifierAppConfig(BaseEdcIdentifierAppConfig):
 
 class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
     visit_models = {
-        'td_maternal': ('maternal_visit', 'td_maternal.maternalvisit')}
+        'td_maternal': ('subject_visit', 'td_maternal.subjectvisit')}
 
 
 class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
@@ -67,3 +69,9 @@ class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
                              slots=[100, 100, 100, 100, 100, 100, 100]),
         '5-day clinic': dict(days=[MO, TU, WE, TH, FR],
                              slots=[100, 100, 100, 100, 100])}
+
+
+class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
+    reason_field = {'td_maternal.subjectvisit': 'reason'}
+    create_on_reasons = [SCHEDULED, UNSCHEDULED]
+    delete_on_reasons = [LOST_VISIT, FAILED_ELIGIBILITY]

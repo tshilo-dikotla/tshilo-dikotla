@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'edc_identifier.apps.AppConfig',
     'edc_lab.apps.AppConfig',
     'edc_locator.apps.AppConfig',
+    'edc_metadata_rules.apps.AppConfig',
     'edc_model_admin.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
@@ -78,6 +79,7 @@ INSTALLED_APPS = [
     'td_dashboard.apps.AppConfig',
     'td_maternal.apps.AppConfig',
     'tshilo_dikotla.apps.EdcAppointmentAppConfig',
+    'tshilo_dikotla.apps.EdcMetadataAppConfig',
     'tshilo_dikotla.apps.EdcBaseAppConfig',
     'tshilo_dikotla.apps.EdcProtocolAppConfig',
     'tshilo_dikotla.apps.EdcVisitTrackingAppConfig',
@@ -191,6 +193,7 @@ USE_L10N = True
 USE_TZ = True
 
 DEFAULT_STUDY_SITE = '40'
+REVIEWER_SITE_ID = 41
 
 
 # Static files (CSS, JavaScript, Images)
