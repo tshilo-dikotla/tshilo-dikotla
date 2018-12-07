@@ -65,7 +65,6 @@ INSTALLED_APPS = [
     'edc_prn.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
-    'edc_identifier.apps.AppConfig',
     'edc_lab.apps.AppConfig',
     'edc_locator.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
@@ -77,6 +76,7 @@ INSTALLED_APPS = [
     'edc_visit_schedule.apps.AppConfig',
     'td_visit_schedule.apps.AppConfig',
     'td_dashboard.apps.AppConfig',
+    #     'td_infant.apps.AppConfig',
     'td_maternal.apps.AppConfig',
     'td_reference.apps.AppConfig',
     'tshilo_dikotla.apps.EdcAppointmentAppConfig',
@@ -86,6 +86,7 @@ INSTALLED_APPS = [
     'tshilo_dikotla.apps.EdcVisitTrackingAppConfig',
     'tshilo_dikotla.apps.AppConfig',
     'tshilo_dikotla.apps.EdcFacilityAppConfig',
+    'tshilo_dikotla.apps.EdcIdentifierAppConfig'
 
 ]
 
