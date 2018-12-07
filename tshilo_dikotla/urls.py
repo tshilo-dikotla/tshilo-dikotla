@@ -17,7 +17,7 @@ from td_maternal.admin_site import td_maternal_admin
 from .views import HomeView, AdministrationView
 
 
-# from edc_lab.admin_site import edc_lab_admin
+from edc_lab.admin_site import edc_lab_admin
 # from edc_sync.admin import edc_sync_admin
 # from edc_sync_files.admin_site import edc_sync_files_admin
 urlpatterns = [
@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', td_maternal_admin.urls),
     path('admin/', admin.site.urls),
     path('admin/', edc_appointment_admin.urls),
-    #     path('admin/', edc_lab_admin.urls),
+    path('admin/', edc_lab_admin.urls),
     path('admin/', edc_locator_admin.urls),
     path('admin/', edc_identifier_admin.urls),
     path('admin/', edc_metadata_admin.urls),
@@ -48,10 +48,10 @@ urlpatterns = [
     path('edc_base/', include('edc_base.urls')),
     path('edc_consent/', include('edc_consent.urls')),
     path('edc_device/', include('edc_device.urls')),
-    #     path('edc_lab/', include('edc_lab.urls')),
-    #     path('edc_lab_dashboard/', include('edc_lab_dashboard.urls')),
+    path('edc_lab/', include('edc_lab.urls')),
+    path('edc_lab_dashboard/', include('edc_lab_dashboard.urls')),
     path('edc_locator/', include('edc_locator.urls')),
-    #     path('edc_label/', include('edc_label.urls')),
+    path('edc_label/', include('edc_label.urls')),
     path('edc_metadata/', include('edc_metadata.urls')),
     path('edc_protocol/', include('edc_protocol.urls')),
     path('edc_identifier/', include('edc_identifier.urls')),
