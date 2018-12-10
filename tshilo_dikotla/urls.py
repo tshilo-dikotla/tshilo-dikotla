@@ -13,6 +13,7 @@ from edc_registration.admin_site import edc_registration_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 
 from td_maternal.admin_site import td_maternal_admin
+from td_infant.admin_site import td_infant_admin
 
 from .views import HomeView, AdministrationView
 
@@ -25,6 +26,7 @@ urlpatterns = [
     path('admin/', include('edc_base.auth.urls')),
 
     path('admin/', td_maternal_admin.urls),
+    path('admin/', td_infant_admin.urls),
     path('admin/', admin.site.urls),
     path('admin/', edc_appointment_admin.urls),
     path('admin/', edc_lab_admin.urls),
@@ -41,7 +43,11 @@ urlpatterns = [
          name='administration_url'),
     path('admin/td_maternal/', RedirectView.as_view(url='admin/td_maternal/'),
          name='maternal_subject_models_url'),
+    path('admin/td_infant/', RedirectView.as_view(url='admin/td_infant/'),
+         name='infant_subject_models_url'),
+
     path('td_maternal/', include('td_maternal.urls')),
+    path('td_infant/', include('td_infant.urls')),
     path('maternal_subject/', include('td_dashboard.urls')),
     path('appointment/', include('edc_appointment.urls')),
     path('edc_action_item/', include('edc_action_item.urls')),

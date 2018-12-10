@@ -72,6 +72,8 @@ INSTALLED_APPS = [
     'edc_model_admin.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
+    'edc_lab_dashboard.apps.AppConfig',
+    'edc_label.apps.AppConfig',
     'edc_timepoint.apps.AppConfig',
     'edc_registration.apps.AppConfig',
     'edc_visit_schedule.apps.AppConfig',
@@ -102,7 +104,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'edc_dashboard.middleware.DashboardMiddleware',
     'edc_subject_dashboard.middleware.DashboardMiddleware',
-    #     'edc_lab_dashboard.middleware.DashboardMiddleware'
+    'edc_lab_dashboard.middleware.DashboardMiddleware'
 ]
 
 ROOT_URLCONF = 'tshilo_dikotla.urls'
