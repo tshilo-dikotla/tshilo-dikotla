@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     'td_infant.apps.AppConfig',
     'td_maternal.apps.AppConfig',
     'td_reference.apps.AppConfig',
+    'td_metadata_rules.apps.AppConfig',
     'tshilo_dikotla.apps.EdcAppointmentAppConfig',
     'tshilo_dikotla.apps.EdcMetadataAppConfig',
     'tshilo_dikotla.apps.EdcBaseAppConfig',
