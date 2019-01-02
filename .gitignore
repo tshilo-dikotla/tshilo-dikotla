@@ -8,7 +8,7 @@ etc/
 
 # Session
 Session.vim
-
+*static*
 # Temporary
 .netrwhist
 *~
