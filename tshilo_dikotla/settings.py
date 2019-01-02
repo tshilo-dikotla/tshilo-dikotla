@@ -30,7 +30,6 @@ LOGIN_REDIRECT_URL = 'home_url'
 INDEX_PAGE = 'td.bhp.org.bw:8000'
 
 # KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
-AUTO_CREATE_KEYS = False
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -214,6 +213,8 @@ DASHBOARD_URL_NAMES = {
     'subject_listboard_url': 'td_dashboard:subject_listboard_url',
     'screening_listboard_url': 'td_dashboard:screening_listboard_url',
     'subject_dashboard_url': 'td_dashboard:subject_dashboard_url',
+    'infant_listboard_url': 'td_dashboard:infant_listboard_url',
+    'infant_subject_dashboard_url': 'td_dashboard:infant_subject_dashboard_url',
 }
 
 LAB_DASHBOARD_URL_NAMES = {}
@@ -224,6 +225,8 @@ DASHBOARD_BASE_TEMPLATES = {
     'screening_listboard_template': 'td_dashboard/subject_screening/listboard.html',
     'subject_listboard_template': 'td_dashboard/maternal_subject/listboard.html',
     'subject_dashboard_template': 'td_dashboard/maternal_subject/dashboard.html',
+    'infant_listboard_template': 'td_dashboard/infant_subject/listboard.html',
+    'infant_subject_dashboard_template': 'td_dashboard/infant_subject/dashboard.html',
 }
 
 REST_FRAMEWORK = {
