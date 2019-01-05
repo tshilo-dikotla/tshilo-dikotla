@@ -30,6 +30,10 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
         AppointmentConfig(
             model='edc_appointment.appointment',
             related_visit_model='td_maternal.maternalvisit',
+            appt_type='clinic'),
+        AppointmentConfig(
+            model='edc_appointment.appointment',
+            related_visit_model='td_infant.infantvisit',
             appt_type='clinic')]
 
 
@@ -74,6 +78,8 @@ class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
 
 
 class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
-    reason_field = {'td_maternal.maternalvisit': 'reason'}
+    reason_field = {
+        'td_maternal.maternalvisit': 'reason',
+        'td_infant.infantvisit': 'reason'}
     create_on_reasons = [SCHEDULED, UNSCHEDULED]
     delete_on_reasons = [LOST_VISIT, FAILED_ELIGIBILITY]
