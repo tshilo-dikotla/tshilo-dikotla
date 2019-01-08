@@ -32,7 +32,7 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
             related_visit_model='td_maternal.maternalvisit',
             appt_type='clinic'),
         AppointmentConfig(
-            model='edc_appointment.appointment',
+            model='td_infant.appointment',
             related_visit_model='td_infant.infantvisit',
             appt_type='clinic')]
 
