@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     'td_infant_validators.apps.AppConfig',
     'td_maternal.apps.AppConfig',
     'td_reference.apps.AppConfig',
+    'td_rando.apps.AppConfig',
     'td_maternal_validators.apps.AppConfig',
     'td_metadata_rules.apps.AppConfig',
     'tshilo_dikotla.apps.EdcTimepointAppConfig',
