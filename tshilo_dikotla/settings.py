@@ -245,7 +245,7 @@ REST_FRAMEWORK = {
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-SITE_ID = 1
+SITE_ID = 40
 
 # edc_facility
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
