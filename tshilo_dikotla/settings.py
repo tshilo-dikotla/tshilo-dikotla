@@ -10,10 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
+from django.core.management.color import color_style
 import os
 import sys
-
-from django.core.management.color import color_style
 
 
 style = color_style()
@@ -80,6 +79,8 @@ INSTALLED_APPS = [
     'td_dashboard.apps.AppConfig',
     'td_infant.apps.AppConfig',
     'td_infant_validators.apps.AppConfig',
+    'td_labs.apps.AppConfig',
+    'td_prn.apps.AppConfig',
     'td_maternal.apps.AppConfig',
     'td_reference.apps.AppConfig',
     'td_rando.apps.AppConfig',
@@ -201,6 +202,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+SITE_CODE = '40'
 DEFAULT_STUDY_SITE = '40'
 REVIEWER_SITE_ID = 41
 
