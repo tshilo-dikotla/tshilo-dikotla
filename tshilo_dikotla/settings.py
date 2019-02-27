@@ -18,7 +18,7 @@ import sys
 style = color_style()
 
 APP_NAME = 'tshilo_dikotla'
-
+SITE_ID = 40
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -248,7 +248,6 @@ REST_FRAMEWORK = {
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-SITE_ID = 1
 
 # edc_facility
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')

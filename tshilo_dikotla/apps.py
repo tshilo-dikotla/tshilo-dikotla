@@ -3,8 +3,10 @@ from datetime import datetime
 from dateutil.relativedelta import MO, TU, WE, TH, FR, SA, SU
 from dateutil.tz import gettz
 from django.apps import AppConfig as DjangoAppConfig
+from django.apps import apps as django_apps
+from django.core.checks import register
 from django.core.management.color import color_style
-
+from django.db.models.signals import post_migrate
 from edc_appointment.appointment_config import AppointmentConfig
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_appointment.constants import COMPLETE_APPT
@@ -22,12 +24,25 @@ from edc_timepoint.timepoint_collection import TimepointCollection
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
 
+from .sites import fqdn, td_site
+from .system_checks import td_check
+
 
 style = color_style()
 
 
+def post_migrate_update_sites(sender=None, **kwargs):
+    from edc_base.sites.utils import add_or_update_django_sites
+    add_or_update_django_sites(
+        apps=django_apps, sites=td_site, fqdn=fqdn)
+
+
 class AppConfig(DjangoAppConfig):
     name = 'tshilo_dikotla'
+
+    def ready(self):
+        post_migrate.connect(post_migrate_update_sites, sender=self)
+        register(td_check)
 
 
 class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
