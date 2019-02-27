@@ -6,5 +6,4 @@ td_site = (
 
 
 def get_site_id(name):
-    print('>>>>>>>>>>>>>>>>>>>>.')
     return [site for site in td_site if site[1] == name][0][0]
