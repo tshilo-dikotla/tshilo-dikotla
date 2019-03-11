@@ -1,8 +1,8 @@
 from django.core.management.base import BaseCommand, CommandError
 from edc_facility.import_holidays import import_holidays
 
-from td_maternal.tests.base_test_case import hiv_neg_mother_options
-from td_maternal.tests.base_test_case import hiv_pos_mother_options, create_mother
+from td_maternal.tests.load_maternal_data import hiv_neg_mother_options
+from td_maternal.tests.load_maternal_data import hiv_pos_mother_options, create_mother
 
 
 class Command(BaseCommand):
