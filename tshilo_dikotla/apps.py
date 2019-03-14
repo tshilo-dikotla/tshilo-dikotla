@@ -23,7 +23,7 @@ from edc_timepoint.timepoint import Timepoint
 from edc_timepoint.timepoint_collection import TimepointCollection
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT,\
-    COMPLETED_PROTOCOL_VISIT
+    COMPLETED_PROTOCOL_VISIT, MISSED_VISIT
 
 from .sites import fqdn, td_site
 from .system_checks import td_check
@@ -104,7 +104,7 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
         'td_infant.infantvisit': 'reason'}
     create_on_reasons = [SCHEDULED, UNSCHEDULED]
     delete_on_reasons = [LOST_VISIT,
-                         FAILED_ELIGIBILITY, COMPLETED_PROTOCOL_VISIT]
+                         FAILED_ELIGIBILITY, COMPLETED_PROTOCOL_VISIT, MISSED_VISIT]
 
 
 class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
