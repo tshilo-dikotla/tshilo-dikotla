@@ -80,7 +80,7 @@ INSTALLED_APPS = [
     'td_infant.apps.AppConfig',
     'td_infant_validators.apps.AppConfig',
     'td_labs.apps.AppConfig',
-    #     'td_prn.apps.AppConfig',
+    'td_prn.apps.AppConfig',
     'td_maternal.apps.AppConfig',
     'td_reference.apps.AppConfig',
     'td_rando.apps.AppConfig',
