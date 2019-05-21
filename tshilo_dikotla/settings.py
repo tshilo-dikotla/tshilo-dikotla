@@ -10,9 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
-from django.core.management.color import color_style
 import os
 import sys
+
+from django.core.management.color import color_style
 
 
 style = color_style()
@@ -80,12 +81,12 @@ INSTALLED_APPS = [
     'td_infant.apps.AppConfig',
     'td_infant_validators.apps.AppConfig',
     'td_labs.apps.AppConfig',
-    'td_prn.apps.AppConfig',
     'td_maternal.apps.AppConfig',
     'td_reference.apps.AppConfig',
     'td_rando.apps.AppConfig',
     'td_maternal_validators.apps.AppConfig',
     'td_metadata_rules.apps.AppConfig',
+    'td_prn.apps.AppConfig',
     'tshilo_dikotla.apps.EdcTimepointAppConfig',
     'tshilo_dikotla.apps.EdcAppointmentAppConfig',
     'tshilo_dikotla.apps.EdcMetadataAppConfig',
