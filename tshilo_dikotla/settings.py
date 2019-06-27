@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     'simple_history',
     'corsheaders',
     'rest_framework',
+    'import_export',
+    'data_wizard.sources',
     'rest_framework.authtoken',
     'edc_action_item.apps.AppConfig',
     'edc_consent.apps.AppConfig',
