@@ -40,7 +40,8 @@ SECRET_KEY = 'mt2-_fw#9p*yx4vps(j&-*5*a(t(jpos&24xd&)4+s4!lu*w^2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['td-live.bhp.org.bw', 'td-test.bhp.org.bw', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['td-live.bhp.org.bw',
+                 'td-test.bhp.org.bw', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
     'simple_history',
     'corsheaders',
     'rest_framework',
+    'django_js_reverse',
     'import_export',
     'data_wizard.sources',
     'rest_framework.authtoken',
