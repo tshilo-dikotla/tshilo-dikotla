@@ -60,7 +60,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_js_reverse',
     'rest_framework',
-    'django_js_reverse',
     'import_export',
     'rest_framework.authtoken',
     'edc_action_item.apps.AppConfig',
