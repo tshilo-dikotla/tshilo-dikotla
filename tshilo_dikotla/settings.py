@@ -58,10 +58,9 @@ INSTALLED_APPS = [
     'django_extensions',
     'simple_history',
     'corsheaders',
-    'rest_framework',
     'django_js_reverse',
+    'rest_framework',
     'import_export',
-    'data_wizard.sources',
     'rest_framework.authtoken',
     'edc_action_item.apps.AppConfig',
     'edc_consent.apps.AppConfig',
@@ -141,11 +140,20 @@ WSGI_APPLICATION = 'tshilo_dikotla.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': os.path.join(ETC_DIR, f'{APP_NAME}', 'mysql.conf'),
+        },
+    },
 }
 
 if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
