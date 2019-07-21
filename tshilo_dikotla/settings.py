@@ -156,6 +156,7 @@ DATABASES = {
     },
 }
 
+
 if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
     MIGRATION_MODULES = {
         "django_crypto_fields": None,
