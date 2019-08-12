@@ -15,6 +15,7 @@ import sys
 
 from django.core.management.color import color_style
 
+from .logging import LOGGING
 
 style = color_style()
 
