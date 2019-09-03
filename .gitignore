@@ -20,6 +20,7 @@ tags
 .settings/
 db.sqlite3
 .DS_Store
+*media
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

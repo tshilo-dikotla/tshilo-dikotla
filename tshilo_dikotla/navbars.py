@@ -35,4 +35,11 @@ tshilo_dikotla.append_item(
         fa_icon='fa-flask',
         url_name=lab_dashboard_urls.get('requisition_listboard_url')))
 
+tshilo_dikotla.append_item(
+    NavbarItem(
+        name='export_data',
+        label='Export Data',
+        fa_icon='fa-file-export',
+        url_name=settings.DASHBOARD_URL_NAMES.get('export_listboard_url')))
+
 site_navbars.register(tshilo_dikotla)
