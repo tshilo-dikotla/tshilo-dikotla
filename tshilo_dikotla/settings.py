@@ -10,25 +10,35 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
+import configparser
 import os
 import sys
 
 from django.core.management.color import color_style
 
-from .logging import LOGGING
+# from .logging import LOGGING
 
 style = color_style()
+
 
 APP_NAME = 'tshilo_dikotla'
 SITE_ID = 40
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ETC_DIR = '/etc'
+ETC_DIR = '/Users/coulsonkgathi/etc'
 
 LOGIN_REDIRECT_URL = 'home_url'
 
 INDEX_PAGE = 'td.bhp.org.bw:8000'
+
+CONFIG_FILE = f'{APP_NAME}.conf'
+
+CONFIG_PATH = os.path.join(ETC_DIR, APP_NAME, CONFIG_FILE)
+sys.stdout.write(style.SUCCESS(f'  * Reading config from {CONFIG_FILE}\n'))
+
+config = configparser.RawConfigParser()
+config.read(os.path.join(CONFIG_PATH))
 
 # KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 
@@ -41,7 +51,7 @@ SECRET_KEY = 'mt2-_fw#9p*yx4vps(j&-*5*a(t(jpos&24xd&)4+s4!lu*w^2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['td-live.bhp.org.bw',
+ALLOWED_HOSTS = ['td-live.bhp.org.bw', '10.113.201.69',
                  'td-test.bhp.org.bw', 'localhost', '127.0.0.1']
 
 
@@ -91,6 +101,7 @@ INSTALLED_APPS = [
     'td_rando.apps.AppConfig',
     'td_maternal_validators.apps.AppConfig',
     'td_prn.apps.AppConfig',
+    'td_export.apps.AppConfig',
     'tshilo_dikotla.apps.EdcTimepointAppConfig',
     'tshilo_dikotla.apps.EdcAppointmentAppConfig',
     'tshilo_dikotla.apps.EdcMetadataAppConfig',
@@ -130,6 +141,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media'
             ],
         },
     },
@@ -141,20 +153,11 @@ WSGI_APPLICATION = 'tshilo_dikotla.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(ETC_DIR, f'{APP_NAME}', 'mysql.conf'),
-        },
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 
@@ -222,10 +225,21 @@ SITE_CODE = '40'
 DEFAULT_STUDY_SITE = '40'
 REVIEWER_SITE_ID = 41
 
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = ''
+EMAIL_USE_TLS = True
+EMAIL_PORT = 0
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'tshilo_dikotla', 'static')
 
@@ -234,6 +248,7 @@ DASHBOARD_URL_NAMES = {
     'maternal_subject_models_url': 'maternal_subject_models_url',
     'subject_listboard_url': 'td_dashboard:subject_listboard_url',
     'screening_listboard_url': 'td_dashboard:screening_listboard_url',
+    'export_listboard_url': 'td_export:export_listboard_url',
     'subject_dashboard_url': 'td_dashboard:subject_dashboard_url',
     'infant_listboard_url': 'td_dashboard:infant_listboard_url',
     'infant_subject_dashboard_url': 'td_dashboard:infant_subject_dashboard_url',
@@ -245,6 +260,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'tshilo_dikotla/base.html',
     'dashboard_base_template': 'tshilo_dikotla/base.html',
     'screening_listboard_template': 'td_dashboard/subject_screening/listboard.html',
+    'export_listboard_template': 'td_export/listboard.html',
     'subject_listboard_template': 'td_dashboard/maternal_subject/listboard.html',
     'subject_dashboard_template': 'td_dashboard/maternal_subject/dashboard.html',
     'infant_listboard_template': 'td_dashboard/infant_subject/listboard.html',
@@ -262,6 +278,7 @@ REST_FRAMEWORK = {
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+GIT_DIR = BASE_DIR
 
 
 # edc_facility
