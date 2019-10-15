@@ -27,7 +27,7 @@ from .views import HomeView, AdministrationView
 urlpatterns = [
     path('accounts/', include('edc_base.auth.urls')),
     path('admin/', include('edc_base.auth.urls')),
-    path('admin/', admin.site.urls),
+
     path('admin/', td_maternal_admin.urls),
     path('admin/', td_infant_admin.urls),
     path('admin/', admin.site.urls),
