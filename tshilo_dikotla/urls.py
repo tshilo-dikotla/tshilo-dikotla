@@ -4,30 +4,30 @@ from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.urls.conf import path, include
 from django.views.generic.base import RedirectView
-
 from edc_action_item.admin_site import edc_action_item_admin
-from edc_appointment.admin_site import edc_appointment_admin
 from edc_identifier.admin_site import edc_identifier_admin
+from edc_lab.admin_site import edc_lab_admin
 from edc_locator.admin_site import edc_locator_admin
 from edc_metadata.admin_site import edc_metadata_admin
 from edc_reference.admin_site import edc_reference_admin
 from edc_registration.admin_site import edc_registration_admin
-from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 
-from td_maternal.admin_site import td_maternal_admin
-from td_infant.admin_site import td_infant_admin
-from td_prn.admin_site import td_prn_admin
+from edc_appointment.admin_site import edc_appointment_admin
+from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 from td_export.admin_site import td_export_admin
+from td_infant.admin_site import td_infant_admin
+from td_maternal.admin_site import td_maternal_admin
+from td_prn.admin_site import td_prn_admin
 
 from .views import HomeView, AdministrationView
 
-from edc_lab.admin_site import edc_lab_admin
+
 # from edc_sync.admin import edc_sync_admin
 # from edc_sync_files.admin_site import edc_sync_files_admin
 urlpatterns = [
     path('accounts/', include('edc_base.auth.urls')),
     path('admin/', include('edc_base.auth.urls')),
-
+    path('admin/', admin.site.urls),
     path('admin/', td_maternal_admin.urls),
     path('admin/', td_infant_admin.urls),
     path('admin/', admin.site.urls),
@@ -72,7 +72,7 @@ urlpatterns = [
 
     #     path('edc_sync/', include('edc_sync.urls')),
     #     path('edc_sync_files/', include('edc_sync_files.urls')),
-    
+
     path('edc_visit_schedule/', include('edc_visit_schedule.urls')),
     path('switch_sites/', LogoutView.as_view(next_page=settings.INDEX_PAGE),
          name='switch_sites_url'),
