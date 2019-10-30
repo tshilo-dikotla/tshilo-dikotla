@@ -213,7 +213,7 @@ LANGUAGES = (
     ('tn', 'Setswana'),
     ('en', 'English'))
 
-en_formats.DATETIME_FORMAT = "Y-m-d"
+en_formats.DATETIME_FORMAT = "Y-m-d H:i:s"
 en_formats.DATE_FORMAT = "Y-m-d"
 
 TIME_ZONE = 'Africa/Gaborone'
