@@ -15,6 +15,7 @@ import os
 import sys
 
 from django.core.management.color import color_style
+from django.conf.locale.en import formats as en_formats
 
 from .logging import LOGGING
 
@@ -211,6 +212,9 @@ LANGUAGE_CODE = 'en-us'
 LANGUAGES = (
     ('tn', 'Setswana'),
     ('en', 'English'))
+
+en_formats.DATETIME_FORMAT = "Y-m-d"
+en_formats.DATE_FORMAT = "Y-m-d"
 
 TIME_ZONE = 'Africa/Gaborone'
 
