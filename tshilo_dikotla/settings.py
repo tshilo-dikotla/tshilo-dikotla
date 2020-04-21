@@ -27,7 +27,7 @@ SITE_ID = 40
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ETC_DIR = '/Users/coulsonkgathi/etc'
+ETC_DIR = '/etc/'
 
 LOGIN_REDIRECT_URL = 'home_url'
 
@@ -103,6 +103,7 @@ INSTALLED_APPS = [
     'td_maternal_validators.apps.AppConfig',
     'td_prn.apps.AppConfig',
     'td_export.apps.AppConfig',
+    'edc_data_manager.apps.AppConfig',
     'tshilo_dikotla.apps.EdcTimepointAppConfig',
     'tshilo_dikotla.apps.EdcAppointmentAppConfig',
     'tshilo_dikotla.apps.EdcMetadataAppConfig',
@@ -153,12 +154,11 @@ WSGI_APPLICATION = 'tshilo_dikotla.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },  
 }
 
 
@@ -233,7 +233,7 @@ REVIEWER_SITE_ID = 41
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = ''
 EMAIL_HOST = ''
 EMAIL_USE_TLS = True
 EMAIL_PORT = 0
@@ -252,6 +252,7 @@ DASHBOARD_URL_NAMES = {
     'maternal_subject_models_url': 'maternal_subject_models_url',
     'subject_listboard_url': 'td_dashboard:subject_listboard_url',
     'screening_listboard_url': 'td_dashboard:screening_listboard_url',
+    'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'export_listboard_url': 'td_export:export_listboard_url',
     'subject_dashboard_url': 'td_dashboard:subject_dashboard_url',
     'infant_listboard_url': 'td_dashboard:infant_listboard_url',
@@ -265,6 +266,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'dashboard_base_template': 'tshilo_dikotla/base.html',
     'screening_listboard_template': 'td_dashboard/subject_screening/listboard.html',
     'export_listboard_template': 'td_export/listboard.html',
+    'data_manager_listboard_template': 'edc_data_manager/listboard.html',
     'subject_listboard_template': 'td_dashboard/maternal_subject/listboard.html',
     'subject_dashboard_template': 'td_dashboard/maternal_subject/dashboard.html',
     'infant_listboard_template': 'td_dashboard/infant_subject/listboard.html',
