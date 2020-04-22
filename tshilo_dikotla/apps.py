@@ -84,7 +84,8 @@ class EdcIdentifierAppConfig(BaseEdcIdentifierAppConfig):
 class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
     visit_models = {
         'td_maternal': ('maternal_visit', 'td_maternal.maternalvisit'),
-        'td_infant': ('infant_visit', 'td_infant.infantvisit')}
+        'td_infant': ('infant_visit', 'td_infant.infantvisit'),
+        'odk_forms': ('subject_visit', 'odk_forms.subjectvisit'), }
 
 
 class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):

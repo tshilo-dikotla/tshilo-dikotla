@@ -17,7 +17,7 @@ import sys
 from django.core.management.color import color_style
 from django.conf.locale.en import formats as en_formats
 
-from .logging import LOGGING
+# from .logging import LOGGING
 
 style = color_style()
 
@@ -104,6 +104,8 @@ INSTALLED_APPS = [
     'td_prn.apps.AppConfig',
     'td_export.apps.AppConfig',
     'edc_data_manager.apps.AppConfig',
+    'odk_dashboard.apps.AppConfig',
+    'odk_forms.apps.AppConfig',
     'tshilo_dikotla.apps.EdcTimepointAppConfig',
     'tshilo_dikotla.apps.EdcAppointmentAppConfig',
     'tshilo_dikotla.apps.EdcMetadataAppConfig',
@@ -154,11 +156,21 @@ WSGI_APPLICATION = 'tshilo_dikotla.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },  
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': '/etc/mysql/td.cnf',
+        },
+    },
 }
 
 
@@ -253,6 +265,7 @@ DASHBOARD_URL_NAMES = {
     'subject_listboard_url': 'td_dashboard:subject_listboard_url',
     'screening_listboard_url': 'td_dashboard:screening_listboard_url',
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
+    'odk_listboard_url': 'odk_dashboard:odk_listboard_url',
     'export_listboard_url': 'td_export:export_listboard_url',
     'subject_dashboard_url': 'td_dashboard:subject_dashboard_url',
     'infant_listboard_url': 'td_dashboard:infant_listboard_url',
@@ -265,6 +278,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'tshilo_dikotla/base.html',
     'dashboard_base_template': 'tshilo_dikotla/base.html',
     'screening_listboard_template': 'td_dashboard/subject_screening/listboard.html',
+    'odk_listboard_template': 'odk_dashboard/odk_forms/listboard.html',
     'export_listboard_template': 'td_export/listboard.html',
     'data_manager_listboard_template': 'edc_data_manager/listboard.html',
     'subject_listboard_template': 'td_dashboard/maternal_subject/listboard.html',
