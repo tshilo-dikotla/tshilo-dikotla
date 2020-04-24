@@ -103,7 +103,7 @@ INSTALLED_APPS = [
     'td_maternal_validators.apps.AppConfig',
     'td_prn.apps.AppConfig',
     'td_export.apps.AppConfig',
-    'edc_data_manager.apps.AppConfig',
+    'tshilo_dikotla.apps.EdcDataManagerAppConfig',
     'tshilo_dikotla.apps.EdcTimepointAppConfig',
     'tshilo_dikotla.apps.EdcAppointmentAppConfig',
     'tshilo_dikotla.apps.EdcMetadataAppConfig',
@@ -158,7 +158,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },  
+    },
 }
 
 
@@ -229,13 +229,9 @@ SITE_CODE = '40'
 DEFAULT_STUDY_SITE = '40'
 REVIEWER_SITE_ID = 41
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-
 EMAIL_BACKEND = ''
 EMAIL_HOST = ''
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = None
 EMAIL_PORT = 0
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
