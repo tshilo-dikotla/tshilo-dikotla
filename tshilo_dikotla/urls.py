@@ -17,6 +17,7 @@ from td_export.admin_site import td_export_admin
 from td_infant.admin_site import td_infant_admin
 from td_maternal.admin_site import td_maternal_admin
 from td_prn.admin_site import td_prn_admin
+from edc_data_manager.admin_site import edc_data_manager_admin
 
 from .views import HomeView, AdministrationView
 
@@ -38,6 +39,7 @@ urlpatterns = [
     path('admin/', edc_reference_admin.urls),
     path('admin/', td_prn_admin.urls),
     path('admin/', td_export_admin.urls),
+    path('admin/', edc_data_manager_admin.urls),
     path('admin/', edc_action_item_admin.urls),
     path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
     #     path('admin/edc_sync_files/', edc_sync_files_admin.urls),
@@ -49,6 +51,7 @@ urlpatterns = [
          name='infant_subject_models_url'),
     path('td_prn/', include('td_prn.urls')),
     path('td_export/', include('td_export.urls')),
+    path('edc_data_manager/', include('edc_data_manager.urls')),
     path('td_maternal/', include('td_maternal.urls')),
     path('td_infant/', include('td_infant.urls')),
     path('maternal_subject/', include('td_dashboard.urls')),
