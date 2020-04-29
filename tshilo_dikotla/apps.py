@@ -25,6 +25,8 @@ from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT, \
     COMPLETED_PROTOCOL_VISIT, MISSED_VISIT
 
+from td_dashboard.patterns import subject_identifier
+
 from .sites import fqdn, td_site
 from .system_checks import td_check
 
@@ -106,6 +108,7 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
 
 
 class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
+    identifier_pattern = subject_identifier
     extra_assignee_choices = {
         'td_clinic': [
             ('td_clinic', 'TD Clinic'),
