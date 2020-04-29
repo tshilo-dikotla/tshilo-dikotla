@@ -104,7 +104,7 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
     create_on_reasons = [SCHEDULED, UNSCHEDULED, COMPLETED_PROTOCOL_VISIT]
     delete_on_reasons = [LOST_VISIT, FAILED_ELIGIBILITY, MISSED_VISIT]
 
-BaseEdcDataManagerAppConfig
+
 class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
     extra_assignee_choices = {
         'td_clinic': [
