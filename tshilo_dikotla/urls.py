@@ -4,8 +4,10 @@ from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.urls.conf import path, include
 from django.views.generic.base import RedirectView
+
 from edc_action_item.admin_site import edc_action_item_admin
 from edc_appointment.admin_site import edc_appointment_admin
+from edc_data_manager.admin_site import edc_data_manager_admin
 from edc_identifier.admin_site import edc_identifier_admin
 from edc_lab.admin_site import edc_lab_admin
 from edc_locator.admin_site import edc_locator_admin
@@ -13,14 +15,12 @@ from edc_metadata.admin_site import edc_metadata_admin
 from edc_reference.admin_site import edc_reference_admin
 from edc_registration.admin_site import edc_registration_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
+
 from td_export.admin_site import td_export_admin
 from td_infant.admin_site import td_infant_admin
 from td_maternal.admin_site import td_maternal_admin
 from td_prn.admin_site import td_prn_admin
-from edc_data_manager.admin_site import edc_data_manager_admin
 from odk_forms.admin_site import odk_forms_admin
-
-
 from .views import HomeView, AdministrationView
 
 # from edc_sync.admin import edc_sync_admin

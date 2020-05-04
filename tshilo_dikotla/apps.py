@@ -19,10 +19,13 @@ from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
+from edc_data_manager.apps import AppConfig as BaseEdcDataManagerAppConfig
 from edc_timepoint.timepoint_collection import TimepointCollection
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT, \
     COMPLETED_PROTOCOL_VISIT, MISSED_VISIT
+
+from td_dashboard.patterns import subject_identifier
 
 from .sites import fqdn, td_site
 from .system_checks import td_check
@@ -103,6 +106,20 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
         'td_infant.infantvisit': 'reason'}
     create_on_reasons = [SCHEDULED, UNSCHEDULED, COMPLETED_PROTOCOL_VISIT]
     delete_on_reasons = [LOST_VISIT, FAILED_ELIGIBILITY, MISSED_VISIT]
+
+
+class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
+    identifier_pattern = subject_identifier
+    extra_assignee_choices = {
+        'td_clinic': [
+            ('td_clinic', 'TD Clinic'),
+            ['kmmasa@bhp.org.bw', 'skgole@bhp.org.bw', 'gmasasa@bhp.org.bw']],
+        'td_ras': [
+            ('td_ras', 'TD RAs'),
+            ['dmphikela@bhp.org.bw', 'lmochoba@bhp.org.bw', 'mmolefe@bhp.org.bw']],
+        'se_dmc': [
+            ('se_dmc', 'SE & DMC'),
+            ['adiphoko@bhp.org.bw', 'ckgathi@bhp.org.bw', 'imosweu@bhp.org.bw']]}
 
 
 class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):

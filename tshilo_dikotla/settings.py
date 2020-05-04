@@ -106,6 +106,7 @@ INSTALLED_APPS = [
     'edc_data_manager.apps.AppConfig',
     'odk_dashboard.apps.AppConfig',
     'odk_forms.apps.AppConfig',
+    'tshilo_dikotla.apps.EdcDataManagerAppConfig',
     'tshilo_dikotla.apps.EdcTimepointAppConfig',
     'tshilo_dikotla.apps.EdcAppointmentAppConfig',
     'tshilo_dikotla.apps.EdcMetadataAppConfig',
@@ -157,22 +158,12 @@ WSGI_APPLICATION = 'tshilo_dikotla.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': '/etc/mysql/td.cnf',
-        },
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
-
 
 if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
     MIGRATION_MODULES = {
@@ -241,13 +232,9 @@ SITE_CODE = '40'
 DEFAULT_STUDY_SITE = '40'
 REVIEWER_SITE_ID = 41
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-
 EMAIL_BACKEND = ''
 EMAIL_HOST = ''
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = None
 EMAIL_PORT = 0
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
