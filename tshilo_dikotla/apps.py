@@ -24,9 +24,8 @@ from edc_timepoint.timepoint_collection import TimepointCollection
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT, \
     COMPLETED_PROTOCOL_VISIT, MISSED_VISIT
-
 from td_dashboard.patterns import subject_identifier
-
+from edc_odk.apps import AppConfig as BaseEdcOdkAppConfig
 from .sites import fqdn, td_site
 from .system_checks import td_check
 
@@ -87,8 +86,7 @@ class EdcIdentifierAppConfig(BaseEdcIdentifierAppConfig):
 class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
     visit_models = {
         'td_maternal': ('maternal_visit', 'td_maternal.maternalvisit'),
-        'td_infant': ('infant_visit', 'td_infant.infantvisit'),
-        'odk_forms': ('subject_visit', 'odk_forms.subjectvisit'), }
+        'td_infant': ('infant_visit', 'td_infant.infantvisit'), }
 
 
 class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
@@ -146,3 +144,13 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
                 status_field='appt_status',
                 closed_status=COMPLETE_APPT)
         ])
+
+
+class EdcOdkAppConfig(BaseEdcOdkAppConfig):
+    clinician_notes_form_ids = {
+        'td_maternal': 'maternal_cliniciannotes',
+        'td_infant': 'infant_cliniciannotes'}
+
+    clinician_notes_models = {
+        'td_maternal': 'cliniciannotes',
+        'td_infant': 'infantcliniciannotes'}

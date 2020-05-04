@@ -30,13 +30,6 @@ tshilo_dikotla.append_item(
 
 tshilo_dikotla.append_item(
     NavbarItem(
-        name='odk_forms_subject',
-        label='ODK Forms',
-        fa_icon='fa fa-file-image',
-        url_name=settings.DASHBOARD_URL_NAMES.get('odk_listboard_url')))
-
-tshilo_dikotla.append_item(
-    NavbarItem(
         name='export_data',
         label='Export Data',
         fa_icon='fa fa-file-export',
