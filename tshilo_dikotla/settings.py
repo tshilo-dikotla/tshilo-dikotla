@@ -14,13 +14,11 @@ import configparser
 import os
 import sys
 
-from django.core.management.color import color_style
 from django.conf.locale.en import formats as en_formats
+from django.core.management.color import color_style
 
 # from .logging import LOGGING
-
 style = color_style()
-
 
 APP_NAME = 'tshilo_dikotla'
 SITE_ID = 40
@@ -54,7 +52,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['td-live.bhp.org.bw', '10.113.201.69',
                  'td-test.bhp.org.bw', 'localhost', '127.0.0.1']
-
 
 # Application definition
 
@@ -152,22 +149,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tshilo_dikotla.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': os.path.join(ETC_DIR, APP_NAME, 'mysql.conf'),
+        }
     }
 }
 
 ODK_CONFIGURATION = {
     'OPTIONS': {
-            'read_default_file': '/etc/odk/odk.cnf',
-        },
-    }
+        'read_default_file': '/etc/odk/odk.cnf',
+    },
+}
 
 if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
     MIGRATION_MODULES = {
@@ -188,9 +186,8 @@ if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
         "td_maternal": None}
 
 if 'test' in sys.argv:
-    PASSWORD_HASHERS = ('django_plainpasswordhasher.PlainPasswordHasher', )
+    PASSWORD_HASHERS = ('django_plainpasswordhasher.PlainPasswordHasher',)
     DEFAULT_FILE_STORAGE = 'inmemorystorage.InMemoryStorage'
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -209,7 +206,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -231,17 +227,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 SITE_CODE = '40'
 DEFAULT_STUDY_SITE = '40'
 REVIEWER_SITE_ID = 41
 
-EMAIL_BACKEND = ''
-EMAIL_HOST = ''
-EMAIL_USE_TLS = None
-EMAIL_PORT = 0
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_BACKEND = config['email_conf'].get('email_backend')
+EMAIL_HOST = config['email_conf'].get('email_host')
+EMAIL_USE_TLS = config['email_conf'].get('email_use_tls')
+EMAIL_PORT = config['email_conf'].get('email_port')
+EMAIL_HOST_USER = config['email_conf'].get('email_user')
+EMAIL_HOST_PASSWORD = config['email_conf'].get('email_host_pwd')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
@@ -290,7 +285,6 @@ REST_FRAMEWORK = {
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 GIT_DIR = BASE_DIR
-
 
 # edc_facility
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
