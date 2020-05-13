@@ -1,5 +1,4 @@
 from django.conf import settings
-from edc_lab_dashboard.dashboard_urls import dashboard_urls as lab_dashboard_urls
 from edc_navbar import NavbarItem, site_navbars, Navbar
 
 
@@ -27,6 +26,13 @@ tshilo_dikotla.append_item(
         label='Infant Subjects',
         fa_icon='far fa-user-circle',
         url_name=settings.DASHBOARD_URL_NAMES.get('infant_listboard_url')))
+
+tshilo_dikotla.append_item(
+    NavbarItem(
+        name='export_data',
+        label='Export Data',
+        fa_icon='fa fa-file-export',
+        url_name=settings.DASHBOARD_URL_NAMES.get('export_listboard_url')))
 
 
 site_navbars.register(tshilo_dikotla)
