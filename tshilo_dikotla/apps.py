@@ -15,7 +15,6 @@ from edc_device.constants import CENTRAL_SERVER
 from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
-from edc_odk.apps import AppConfig as BaseEdcOdkAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
@@ -132,13 +131,3 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
                 status_field='appt_status',
                 closed_status=COMPLETE_APPT)
         ])
-
-
-class EdcOdkAppConfig(BaseEdcOdkAppConfig):
-    clinician_notes_form_ids = {
-        'td_maternal': 'maternal_cliniciannotes',
-        'td_infant': 'infant_cliniciannotes'}
-
-    clinician_notes_models = {
-        'td_maternal': 'cliniciannotes',
-        'td_infant': 'infantcliniciannotes'}
