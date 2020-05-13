@@ -100,8 +100,6 @@ INSTALLED_APPS = [
     'td_maternal_validators.apps.AppConfig',
     'td_prn.apps.AppConfig',
     'td_export.apps.AppConfig',
-    'tshilo_dikotla.apps.EdcDataManagerAppConfig',
-    'tshilo_dikotla.apps.EdcOdkAppConfig',
     'tshilo_dikotla.apps.EdcTimepointAppConfig',
     'tshilo_dikotla.apps.EdcAppointmentAppConfig',
     'tshilo_dikotla.apps.EdcMetadataAppConfig',
