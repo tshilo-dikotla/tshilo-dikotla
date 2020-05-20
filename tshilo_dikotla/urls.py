@@ -1,27 +1,25 @@
+from edc_visit_schedule.admin_site import edc_visit_schedule_admin
+from td_infant.admin_site import td_infant_admin
+from td_maternal.admin_site import td_maternal_admin
+from td_prn.admin_site import td_prn_admin
+
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.urls.conf import path, include
 from django.views.generic.base import RedirectView
-
-from edc_action_item.admin_site import edc_action_item_admin
-from edc_appointment.admin_site import edc_appointment_admin
-from edc_data_manager.admin_site import edc_data_manager_admin
 from edc_identifier.admin_site import edc_identifier_admin
 from edc_lab.admin_site import edc_lab_admin
 from edc_locator.admin_site import edc_locator_admin
 from edc_metadata.admin_site import edc_metadata_admin
-from edc_reference.admin_site import edc_reference_admin
 from edc_registration.admin_site import edc_registration_admin
-from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 
+from edc_action_item.admin_site import edc_action_item_admin
+from edc_appointment.admin_site import edc_appointment_admin
+from edc_data_manager.admin_site import edc_data_manager_admin
+from edc_reference.admin_site import edc_reference_admin
 from td_export.admin_site import td_export_admin
-from td_infant.admin_site import td_infant_admin
-from td_maternal.admin_site import td_maternal_admin
-from td_prn.admin_site import td_prn_admin
-from edc_odk.admin_site import edc_odk_admin
-
 
 from .views import HomeView, AdministrationView
 
@@ -44,7 +42,6 @@ urlpatterns = [
     path('admin/', td_prn_admin.urls),
     path('admin/', td_export_admin.urls),
     path('admin/', edc_data_manager_admin.urls),
-    path('admin/', edc_odk_admin.urls),
     path('admin/', edc_action_item_admin.urls),
     path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
     #     path('admin/edc_sync_files/', edc_sync_files_admin.urls),
@@ -60,7 +57,6 @@ urlpatterns = [
     path('td_maternal/', include('td_maternal.urls')),
     path('td_infant/', include('td_infant.urls')),
     path('maternal_subject/', include('td_dashboard.urls')),
-    path('edc_odk_forms/', include('edc_odk.urls')),
     path('appointment/', include('edc_appointment.urls')),
     path('edc_action_item/', include('edc_action_item.urls')),
     path('edc_base/', include('edc_base.urls')),
