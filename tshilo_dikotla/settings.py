@@ -54,7 +54,6 @@ ALLOWED_HOSTS = ['td-live.bhp.org.bw', '10.113.201.69',
                  'td-test.bhp.org.bw', 'localhost', '127.0.0.1']
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
