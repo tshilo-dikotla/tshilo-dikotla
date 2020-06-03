@@ -1,6 +1,4 @@
 from datetime import datetime
-from td_dashboard.patterns import subject_identifier
-
 from dateutil.relativedelta import MO, TU, WE, TH, FR, SA, SU
 from dateutil.tz import gettz
 from django.apps import AppConfig as DjangoAppConfig
@@ -8,6 +6,9 @@ from django.apps import apps as django_apps
 from django.core.checks import register
 from django.core.management.color import color_style
 from django.db.models.signals import post_migrate
+from edc_appointment.appointment_config import AppointmentConfig
+from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
+from edc_appointment.constants import COMPLETE_APPT
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
 from edc_constants.constants import FAILED_ELIGIBILITY
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
@@ -18,16 +19,13 @@ from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
-from edc_timepoint.timepoint_collection import TimepointCollection
-
-from edc_appointment.appointment_config import AppointmentConfig
-from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
-from edc_appointment.constants import COMPLETE_APPT
 from edc_data_manager.apps import AppConfig as BaseEdcDataManagerAppConfig
+from edc_timepoint.timepoint_collection import TimepointCollection
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT, \
     COMPLETED_PROTOCOL_VISIT, MISSED_VISIT
-
+from td_dashboard.patterns import subject_identifier
+from edc_odk.apps import AppConfig as BaseEdcOdkAppConfig
 from .sites import fqdn, td_site
 from .system_checks import td_check
 
@@ -146,3 +144,13 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
                 status_field='appt_status',
                 closed_status=COMPLETE_APPT)
         ])
+
+
+class EdcOdkAppConfig(BaseEdcOdkAppConfig):
+    clinician_notes_form_ids = {
+        'td_maternal': 'maternal_cliniciannotes',
+        'td_infant': 'infant_cliniciannotes'}
+
+    clinician_notes_models = {
+        'td_maternal': 'cliniciannotes',
+        'td_infant': 'infantcliniciannotes'}
