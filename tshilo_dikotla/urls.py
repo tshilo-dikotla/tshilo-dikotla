@@ -18,12 +18,8 @@ from edc_registration.admin_site import edc_registration_admin
 from td_export.admin_site import td_export_admin
 
 from edc_action_item.admin_site import edc_action_item_admin
-from edc_action_item.admin_site import edc_action_item_admin
-from edc_appointment.admin_site import edc_appointment_admin
 from edc_appointment.admin_site import edc_appointment_admin
 from edc_data_manager.admin_site import edc_data_manager_admin
-from edc_data_manager.admin_site import edc_data_manager_admin
-from edc_reference.admin_site import edc_reference_admin
 from edc_reference.admin_site import edc_reference_admin
 
 from .views import HomeView, AdministrationView
