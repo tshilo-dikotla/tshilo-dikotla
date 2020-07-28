@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_crypto_fields.apps.AppConfig',
     'django_extensions',
+    'django_q',
     'simple_history',
     'corsheaders',
     'django_js_reverse',
@@ -111,7 +112,6 @@ INSTALLED_APPS = [
     'tshilo_dikotla.apps.AppConfig',
     'tshilo_dikotla.apps.EdcFacilityAppConfig',
     'tshilo_dikotla.apps.EdcIdentifierAppConfig'
-
 ]
 
 MIDDLEWARE = [
@@ -165,6 +165,17 @@ ODK_CONFIGURATION = {
     'OPTIONS': {
         'read_default_file': '/etc/odk/odk.cnf',
     },
+}
+
+BASE_FORMAT = 'http://%(host)s/view/%(api)s?formId=%(form_id)s'
+
+Q_CLUSTER = {
+    'name': 'tshilo_dikotla',
+    'timeout': 1200,
+    'retry': 120,
+    'queue_limit': 50,
+    'bulk': 10,
+    'orm': 'default'
 }
 
 if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
