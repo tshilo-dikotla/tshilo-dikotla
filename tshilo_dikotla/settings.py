@@ -65,7 +65,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_crypto_fields.apps.AppConfig',
     'django_extensions',
-    'django_q',
     'simple_history',
     'corsheaders',
     'django_js_reverse',
@@ -169,15 +168,9 @@ ODK_CONFIGURATION = {
 
 BASE_FORMAT = 'http://%(host)s/view/%(api)s?formId=%(form_id)s'
 
-Q_CLUSTER = {
-    'name': 'tshilo_dikotla',
-    'workers': 2,
-    'timeout': 1200,
-    'ack_failures': True,
-    'queue_limit': 50,
-    'bulk': 10,
-    'orm': 'default'
-}
+# Celery configurations
+CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_INCLUDE = ['edc_odk.tasks', ]
 
 if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
     MIGRATION_MODULES = {
