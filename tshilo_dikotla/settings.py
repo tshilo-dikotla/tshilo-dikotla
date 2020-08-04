@@ -171,8 +171,9 @@ BASE_FORMAT = 'http://%(host)s/view/%(api)s?formId=%(form_id)s'
 
 Q_CLUSTER = {
     'name': 'tshilo_dikotla',
+    'workers': 2,
     'timeout': 1200,
-    'retry': 120,
+    'ack_failures': True,
     'queue_limit': 50,
     'bulk': 10,
     'orm': 'default'
