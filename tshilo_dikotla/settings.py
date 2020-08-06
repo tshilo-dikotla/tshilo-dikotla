@@ -111,7 +111,6 @@ INSTALLED_APPS = [
     'tshilo_dikotla.apps.AppConfig',
     'tshilo_dikotla.apps.EdcFacilityAppConfig',
     'tshilo_dikotla.apps.EdcIdentifierAppConfig'
-
 ]
 
 MIDDLEWARE = [
@@ -166,6 +165,12 @@ ODK_CONFIGURATION = {
         'read_default_file': '/etc/odk/odk.cnf',
     },
 }
+
+BASE_FORMAT = 'http://%(host)s/view/%(api)s?formId=%(form_id)s'
+
+# Celery configurations
+CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_INCLUDE = ['edc_odk.tasks', ]
 
 if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
     MIGRATION_MODULES = {
