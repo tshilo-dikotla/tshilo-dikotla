@@ -166,6 +166,12 @@ ODK_CONFIGURATION = {
     },
 }
 
+BASE_FORMAT = 'http://%(host)s/view/%(api)s?formId=%(form_id)s'
+
+# Celery configurations
+CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_INCLUDE = ['edc_odk.tasks', ]
+
 if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
     MIGRATION_MODULES = {
         "django_crypto_fields": None,

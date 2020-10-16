@@ -148,8 +148,8 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
 
 class EdcOdkAppConfig(BaseEdcOdkAppConfig):
     clinician_notes_form_ids = {
-        'td_maternal': 'maternal_cliniciannotes',
-        'td_infant': 'infant_cliniciannotes'}
+        'td_maternal': 'maternal_cliniciannotes_v1.0',
+        'td_infant': 'infant_cliniciannotes_v1.0'}
 
     clinician_notes_models = {
         'td_maternal': 'cliniciannotes',
