@@ -66,7 +66,7 @@ class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
     study_open_datetime = datetime(
         2016, 4, 1, 0, 0, 0, tzinfo=gettz('UTC'))
     study_close_datetime = datetime(
-        2020, 12, 1, 0, 0, 0, tzinfo=gettz('UTC'))
+        2022, 5, 31, 23, 59, 59, tzinfo=gettz('UTC'))
 
 
 class EdcBaseAppConfig(BaseEdcBaseAppConfig):
