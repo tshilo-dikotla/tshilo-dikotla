@@ -163,6 +163,14 @@ class EdcOdkAppConfig(BaseEdcOdkAppConfig):
         'td_maternal': 'maternallabresultsfiles',
         'td_infant': 'infantlabresultsfiles'}
 
+    clinician_notes_archive_models = {
+        'td_maternal': 'cliniciannotesarchives',
+        'td_infant': 'infantcliniciannotesarchives'}
+
+    clinician_notes_archivesform_ids = {
+        'td_maternal': 'maternal_cliniciannotes_archives_v1.0',
+        'td_infant': 'infant_cliniciannotes_archives_v1.0'}
+
 #     crf_form_ids = {
 #         'td_maternal': ['maternal_cliniciannotes_v1.0', 'maternal_labresults_v1.0'],
 #         'td_infant': ['infant_cliniciannotes_v1.0', 'infant_labresults_v1.0']}
