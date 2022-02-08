@@ -154,3 +154,11 @@ class EdcOdkAppConfig(BaseEdcOdkAppConfig):
     clinician_notes_models = {
         'td_maternal': 'cliniciannotes',
         'td_infant': 'infantcliniciannotes'}
+
+#     crf_form_ids = {
+#         'td_maternal': ['maternal_cliniciannotes_v1.0', 'maternal_labresults_v1.0'],
+#         'td_infant': ['infant_cliniciannotes_v1.0', 'infant_labresults_v1.0']}
+#
+#     crf_models = {
+#         'td_maternal': ['cliniciannotes', 'maternallabresultsfiles'],
+#         'td_infant': ['infantcliniciannotes', 'infantlabresultsfiles']}
