@@ -76,6 +76,7 @@ urlpatterns = [
     path('edc_reference/', include('edc_reference.urls')),
     path('edc_registration/', include('edc_registration.urls')),
     path('edc_subject_dashboard/', include('edc_subject_dashboard.urls')),
+    path('edc_da_api/', include('edc_document_archieve.urls')),
 
     #     path('edc_sync/', include('edc_sync.urls')),
     #     path('edc_sync_files/', include('edc_sync_files.urls')),
